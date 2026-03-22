@@ -20,12 +20,12 @@ params:
   info: No nonsense personal finance tracker. In beta™
   description: Spendly is a fully offline, privacy-first personal finance tracking application designed to help you take control of your financial life. Your data stays on your device, ensuring complete privacy and security. Track expenses, manage budgets, and gain insights into your spending habits without compromising your personal information or relying on cloud services.
   keywords: finance,tracker,offline,privacy
-  avatarurl: img/favicon.png
+  avatarurl: images/avatar.jpg
   #gravatar: john.doe@example.com
   
-  faviconSVG: /img/favicon.svg
-  favicon_32: img/favicon.ico
-  favicon_16: img/favicon.ico
+  faviconSVG: /images/favicon.svg
+  favicon_32: /images/favicon-32x32.png
+  favicon_16: /images/favicon-16x16.png
   
   since: 2025
   
