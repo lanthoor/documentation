@@ -17,9 +17,9 @@ markup:
 
 params:
   author: Lallu Anthoor
-  info: No nonsense personal finance tracker. In beta™
-  description: Spendly is a fully offline, privacy-first personal finance tracking application designed to help you take control of your financial life. Your data stays on your device, ensuring complete privacy and security. Track expenses, manage budgets, and gain insights into your spending habits without compromising your personal information or relying on cloud services.
-  keywords: finance,tracker,offline,privacy
+  info: Building practical software for people who care about clarity and control.
+  description: Personal portfolio of Lallu Anthoor, featuring projects across Android and Python tooling, including Spendly and Plottini.
+  keywords: lallu anthoor,portfolio,android,kotlin,python,open source,spendly,plottini
   avatarurl: images/avatar.jpg
   #gravatar: john.doe@example.com
   
@@ -42,11 +42,15 @@ params:
     - name: Github
       icon: fa-brands fa-github fa-2x
       weight: 1
-      url: https://github.com/spendly-co-in/spendly/
-    - name: Play Store
-      icon: fa-brands fa-google-play fa-2x
+      url: https://github.com/lanthoor
+    - name: Spendly
+      icon: fa-brands fa-android fa-2x
+      weight: 2
+      url: https://github.com/lanthoor/spendly
+    - name: Plottini
+      icon: fa-solid fa-chart-line fa-2x
       weight: 3
-      url: "https://play.google.com/apps/testing/in.co.spendly"
+      url: https://github.com/lanthoor/plottini
 
 taxonomies:
   category: categories
@@ -56,12 +60,12 @@ taxonomies:
 
 menu:
   main:
-    - name: Privacy
-      weight: 1
-      url: privacy/
     - name: About
-      weight: 2
+      weight: 1
       url: about/
-    - name: Changelog
+    - name: Spendly
+      weight: 2
+      url: spendly/
+    - name: Plottini
       weight: 3
-      url: changelog/
+      url: plottini/
