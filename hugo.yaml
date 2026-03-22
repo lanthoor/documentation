@@ -1,6 +1,8 @@
 baseURL: https://lanthoor.dev
 title: Lallu Anthoor
-theme: hugo-coder
+theme:
+  - hugo-coder
+  - hextra
 languagecode: en
 defaultcontentlanguage: en
 
@@ -17,10 +19,14 @@ markup:
 
 params:
   author: Lallu Anthoor
-  info: No nonsense personal finance tracker. In beta™
-  description: Spendly is a fully offline, privacy-first personal finance tracking application designed to help you take control of your financial life. Your data stays on your device, ensuring complete privacy and security. Track expenses, manage budgets, and gain insights into your spending habits without compromising your personal information or relying on cloud services.
-  keywords: finance,tracker,offline,privacy
-  avatarurl: images/avatar.jpg
+  info: Building practical software for people who care about clarity and control.
+  description: Personal portfolio of Lallu Anthoor, featuring projects across Android and Python tooling, including Spendly and Plottini.
+  keywords: lallu anthoor,portfolio,android,kotlin,python,open source,spendly,plottini
+
+  navbar:
+    displayLogo: false
+
+  avatarurl: images/avatar.png
   #gravatar: john.doe@example.com
   
   faviconSVG: /images/favicon.svg
@@ -31,8 +37,11 @@ params:
   
   enableTwemoji: true
   
-  colorScheme: auto
+  colorScheme: light
   hidecolorschemetoggle: false
+
+  theme:
+    default: light
   
   # customCSS: ["css/custom.css"]
   customSCSS: ["scss/changelog.scss"]
@@ -42,11 +51,15 @@ params:
     - name: Github
       icon: fa-brands fa-github fa-2x
       weight: 1
-      url: https://github.com/spendly-co-in/spendly/
-    - name: Play Store
-      icon: fa-brands fa-google-play fa-2x
+      url: https://github.com/lanthoor
+    - name: Spendly
+      icon: fa-solid fa-wallet fa-2x
+      weight: 2
+      url: https://github.com/lanthoor/spendly
+    - name: Plottini
+      icon: fa-solid fa-chart-column fa-2x
       weight: 3
-      url: "https://play.google.com/apps/testing/in.co.spendly"
+      url: https://github.com/lanthoor/plottini
 
 taxonomies:
   category: categories
@@ -56,12 +69,12 @@ taxonomies:
 
 menu:
   main:
-    - name: Privacy
-      weight: 1
-      url: privacy/
     - name: About
+      weight: 1
+      url: /about/
+    - name: Spendly
       weight: 2
-      url: about/
-    - name: Changelog
+      url: /spendly/
+    - name: Plottini
       weight: 3
-      url: changelog/
+      url: /plottini/

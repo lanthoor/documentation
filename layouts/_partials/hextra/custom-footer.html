@@ -1,0 +1,4 @@
+{{ $ctx := .context }}
+<div class="hx:py-6 hx:text-sm hx:text-center hx:md:text-left">
+  {{ now.Year }} {{ with $ctx.Site.Params.author }}{{ . }}{{ end }}.
+</div>

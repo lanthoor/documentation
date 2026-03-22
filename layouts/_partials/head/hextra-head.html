@@ -1,0 +1,33 @@
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{ .Description | default .Site.Params.description }}" />
+  <link rel="canonical" href="{{ .Permalink }}" />
+  <title>{{ with .Title }}{{ . }} - {{ end }}{{ .Site.Title }}</title>
+
+  <link rel="icon" type="image/svg+xml" href="{{ .Site.Params.faviconSVG | default "/images/favicon.svg" | relURL }}" sizes="any">
+  <link rel="icon" type="image/png" href="{{ .Site.Params.favicon_32 | default "/images/favicon-32x32.png" | relURL }}" sizes="32x32">
+  <link rel="icon" type="image/png" href="{{ .Site.Params.favicon_16 | default "/images/favicon-16x16.png" | relURL }}" sizes="16x16">
+
+  {{- $mainCss := resources.Get "css/compiled/main.css" -}}
+  {{- $customCss := resources.Get "css/custom.css" -}}
+  {{- $variablesCss := resources.Get "css/variables.css" | resources.ExecuteAsTemplate "css/variables.css" . -}}
+  {{- $docsOverrideCss := resources.Get "css/docs-overrides.css" -}}
+  {{- $styles := slice $variablesCss $mainCss $customCss $docsOverrideCss | resources.Concat "css/docs-main.css" -}}
+  {{- if hugo.IsProduction -}}
+    {{- $styles = $styles | minify | fingerprint -}}
+    <link href="{{ $styles.RelPermalink }}" rel="stylesheet" integrity="{{ $styles.Data.Integrity }}" />
+  {{- else -}}
+    <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
+  {{- end -}}
+
+  {{- $scriptsHead := slice -}}
+  {{- range resources.Match "js/head/*.js" -}}
+    {{- $scriptsHead = $scriptsHead | append (resources.ExecuteAsTemplate .Name $ .) -}}
+  {{- end -}}
+  {{- $scripts := $scriptsHead | resources.Concat "js/docs-main-head.js" -}}
+  {{- if hugo.IsProduction -}}
+    {{- $scripts = $scripts | minify | fingerprint -}}
+  {{- end -}}
+  <script src="{{ $scripts.RelPermalink }}"{{ with $scripts.Data.Integrity }} integrity="{{ . }}"{{ end }}></script>
+</head>

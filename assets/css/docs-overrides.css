@@ -1,0 +1,52 @@
+.content :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  text-decoration: none;
+}
+
+.content .subheading-anchor {
+  margin-left: 0.35rem;
+  margin-right: 0.35rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.content h2:hover .subheading-anchor,
+.content h3:hover .subheading-anchor,
+.content h4:hover .subheading-anchor,
+.content h5:hover .subheading-anchor,
+.content h6:hover .subheading-anchor,
+.content .subheading-anchor:focus-visible,
+.content span:target + .subheading-anchor {
+  opacity: 1;
+}
+
+.content .subheading-anchor::after {
+  content: "#";
+  color: #9ca3af;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+.dark .content .subheading-anchor::after {
+  color: #6b7280;
+}
+
+.hextra-footer {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.hextra-footer a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.hextra-footer a:hover,
+.hextra-footer a:focus {
+  color: var(--hx-color-primary-600);
+}
+
+.dark .hextra-footer a:hover,
+.dark .hextra-footer a:focus {
+  color: var(--hx-color-primary-500);
+}

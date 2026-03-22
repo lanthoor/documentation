@@ -1,0 +1,19 @@
+<footer class="hextra-footer hx:bg-gray-100 hx:py-10 hx:pb-[env(safe-area-inset-bottom)] hx:dark:bg-neutral-900 hx:print:bg-transparent">
+  <section class="container hx:text-center hx:text-gray-600 hx:dark:text-gray-400">
+    &copy;
+    {{ if (and .Site.Params.since (lt .Site.Params.since now.Year)) }}
+      {{ .Site.Params.since }} -
+    {{ end }}
+    {{ now.Year }}
+    {{ with .Site.Params.author }} {{ . }} {{ end }}
+    &middot;
+    {{ if (and .Site.Params.license) }}
+      {{ i18n "licensed_under" }} {{ .Site.Params.license | safeHTML }}
+      &middot;
+    {{ end }}
+    {{ i18n "powered_by" }} <a href="https://gohugo.io/" target="_blank" rel="noopener" style="text-decoration: underline; text-underline-offset: 0.15em;">Hugo</a> &amp; <a href="https://github.com/imfing/hextra" target="_blank" rel="noopener" style="text-decoration: underline; text-underline-offset: 0.15em;">Hextra</a>.
+    {{ if (and .Site.Params.commit .GitInfo) }}
+      [<a href="{{ .Site.Params.commit }}/{{ .GitInfo.Hash }}" target="_blank" rel="noopener">{{ .GitInfo.AbbreviatedHash }}</a>]
+    {{ end }}
+  </section>
+</footer>
