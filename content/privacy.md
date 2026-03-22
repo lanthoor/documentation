@@ -93,6 +93,6 @@ This Privacy Policy shall be governed by and construed in accordance with the la
 
 For questions, concerns, or requests regarding this Privacy Policy or data handling practices, please contact us at:
 
-**Email:** privacy@spendly.co.in
+**Email:** privacy@lanthoor.dev
 
 We will make reasonable efforts to respond to inquiries within thirty (30) days of receipt.
