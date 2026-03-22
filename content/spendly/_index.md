@@ -1,6 +1,10 @@
 +++
 title = "Spendly"
 slug = "spendly"
+type = "docs"
+
+[[cascade]]
+type = "docs"
 +++
 
 Spendly is an offline-first personal finance tracker for Android.

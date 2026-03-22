@@ -1,6 +1,10 @@
 +++
 title = "Plottini"
 slug = "plottini"
+type = "docs"
+
+[[cascade]]
+type = "docs"
 +++
 
 Plottini is a graph builder for creating publication-quality plots from TSV data without writing plotting code.
