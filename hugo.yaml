@@ -37,8 +37,11 @@ params:
   
   enableTwemoji: true
   
-  colorScheme: auto
+  colorScheme: light
   hidecolorschemetoggle: false
+
+  theme:
+    default: light
   
   # customCSS: ["css/custom.css"]
   customSCSS: ["scss/changelog.scss"]
