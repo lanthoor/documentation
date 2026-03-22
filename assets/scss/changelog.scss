@@ -1,0 +1,469 @@
+// Import theme variables to access colors
+@import "variables";
+
+// Changelog Container
+.changelog {
+  // Timeline wrapper
+  .changelog-timeline {
+    margin-top: 4rem;
+    position: relative;
+    padding-left: 3.5rem;
+
+    @media only screen and (max-width: 768px) {
+      padding-left: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    // Grey vertical line running through all items
+    &::before {
+      content: '';
+      position: absolute;
+      left: 1.15rem;
+      top: 2rem;
+      bottom: 2rem;
+      width: 2px;
+      background-color: #ccc;
+
+      @media only screen and (max-width: 768px) {
+        left: 0.9rem;
+      }
+    }
+  }
+
+  // Individual timeline item
+  .timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    scroll-margin-top: 2rem;
+
+    @media only screen and (max-width: 768px) {
+      margin-bottom: 2.5rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Timeline marker (the outlined circle on the left)
+  .timeline-marker {
+    position: absolute;
+    left: -3.5rem;
+    top: 0.4rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+
+    @media only screen and (max-width: 768px) {
+      left: -2.5rem;
+      width: 2rem;
+      height: 2rem;
+      top: 0.3rem;
+    }
+
+    .timeline-circle {
+      width: 1.4rem;
+      height: 1.4rem;
+      border-radius: 50%;
+      border: 3px solid #212121;
+      background-color: $bg-color;
+
+      @media only screen and (max-width: 768px) {
+        width: 1.2rem;
+        height: 1.2rem;
+        border-width: 2.5px;
+      }
+    }
+  }
+
+  // Version name and date (next to circle)
+  .timeline-version {
+    margin-bottom: 1.2rem;
+    padding-left: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+
+    @media only screen and (max-width: 768px) {
+      margin-bottom: 1rem;
+      gap: 0.6rem;
+    }
+
+    .version-link {
+      font-size: 2.2rem;
+      font-weight: 700;
+      font-family: $code-font-family;
+      color: $fg-color;
+      text-decoration: none;
+
+      &:hover {
+        color: $link-color;
+        text-decoration: underline;
+      }
+
+      @media only screen and (max-width: 768px) {
+        font-size: 1.9rem;
+      }
+    }
+
+    .release-date {
+      font-size: 1.5rem;
+      color: $fg-color;
+      opacity: 0.6;
+      font-family: $code-font-family;
+      white-space: nowrap;
+
+      @media only screen and (max-width: 768px) {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  // Timeline content (changelog details)
+  .timeline-content {
+    padding-left: 1.5rem;
+
+    @media only screen and (max-width: 768px) {
+      padding-left: 1rem;
+    }
+
+    // Hide H1 from markdown (already removed in template but just in case)
+    h1 {
+      display: none;
+    }
+
+    // H3 category headers styled as themed list headers
+    h3 {
+      font-size: 1.6rem;
+      margin-top: 2.4rem;
+      margin-bottom: 0;
+      padding: 1rem 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-weight: 700;
+      border-radius: 0.8rem 0.8rem 0 0;
+      background: linear-gradient(135deg, rgba(67, 233, 123, 0.12), rgba(67, 233, 123, 0.06));
+      border-left: 4px solid #43e97b;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &::before {
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        font-size: 1.5rem;
+        width: 2rem;
+        display: inline-block;
+        text-align: center;
+        flex-shrink: 0;
+      }
+
+      @media only screen and (max-width: 768px) {
+        font-size: 1.5rem;
+        padding: 0.9rem 1.2rem;
+
+        &::before {
+          font-size: 1.4rem;
+          width: 1.8rem;
+        }
+      }
+
+      // Following sibling ul is the section content
+      + ul {
+        margin-top: 0;
+        border-radius: 0 0 0.8rem 0.8rem;
+        background-color: rgba(0, 0, 0, 0.02);
+        padding: 1.2rem 1.4rem 0.6rem 1.4rem;
+        border-left: 4px solid #43e97b;
+        border-right: 1px solid rgba(0, 0, 0, 0.06);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+        @media only screen and (max-width: 768px) {
+          padding: 1rem 1.2rem 0.4rem 1.2rem;
+        }
+      }
+    }
+
+    // Icon and color mappings for each section type
+    h3:nth-of-type(1) {
+      background: linear-gradient(135deg, rgba(67, 233, 123, 0.12), rgba(67, 233, 123, 0.06));
+      border-left-color: #43e97b;
+
+      &::before {
+        content: "\f067"; // fa-plus (Added)
+        color: #43e97b;
+      }
+
+      + ul {
+        background-color: rgba(67, 233, 123, 0.03);
+        border-left-color: #43e97b;
+      }
+    }
+
+    h3:nth-of-type(2) {
+      background: linear-gradient(135deg, rgba(255, 165, 2, 0.12), rgba(255, 165, 2, 0.06));
+      border-left-color: #ffa502;
+
+      &::before {
+        content: "\f0ad"; // fa-wrench (Fixed)
+        color: #ffa502;
+      }
+
+      + ul {
+        background-color: rgba(255, 165, 2, 0.03);
+        border-left-color: #ffa502;
+      }
+    }
+
+    h3:nth-of-type(3) {
+      background: linear-gradient(135deg, rgba(79, 172, 254, 0.12), rgba(79, 172, 254, 0.06));
+      border-left-color: #4facfe;
+
+      &::before {
+        content: "\f021"; // fa-rotate (Changed)
+        color: #4facfe;
+      }
+
+      + ul {
+        background-color: rgba(79, 172, 254, 0.03);
+        border-left-color: #4facfe;
+      }
+    }
+
+    h3:nth-of-type(4) {
+      background: linear-gradient(135deg, rgba(245, 87, 108, 0.12), rgba(245, 87, 108, 0.06));
+      border-left-color: #f5576c;
+
+      &::before {
+        content: "\f06a"; // fa-exclamation-circle (Breaking)
+        color: #f5576c;
+      }
+
+      + ul {
+        background-color: rgba(245, 87, 108, 0.03);
+        border-left-color: #f5576c;
+      }
+    }
+
+    h3:nth-of-type(5) {
+      background: linear-gradient(135deg, rgba(108, 92, 231, 0.12), rgba(108, 92, 231, 0.06));
+      border-left-color: #6c5ce7;
+
+      &::before {
+        content: "\f013"; // fa-gear (Technical/other)
+        color: #6c5ce7;
+      }
+
+      + ul {
+        background-color: rgba(108, 92, 231, 0.03);
+        border-left-color: #6c5ce7;
+      }
+    }
+
+    // Section content lists (direct children of timeline-content)
+    > ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      > li {
+        position: relative;
+        padding-left: 2.4rem;
+        margin-bottom: 0.9rem;
+        line-height: 1.8;
+
+        @media only screen and (max-width: 768px) {
+          padding-left: 2rem;
+          margin-bottom: 0.7rem;
+        }
+
+        &::before {
+          content: "▸";
+          position: absolute;
+          left: 0;
+          color: $link-color;
+          font-weight: 700;
+          font-size: 1.6rem;
+        }
+
+        // Nested lists inside section items
+        ul {
+          margin-left: 1.6rem;
+          margin-top: 0.6rem;
+          margin-bottom: 0.4rem;
+          list-style: none;
+          padding: 0;
+
+          @media only screen and (max-width: 768px) {
+            margin-left: 1.2rem;
+            margin-top: 0.5rem;
+          }
+
+          li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.6rem;
+
+            @media only screen and (max-width: 768px) {
+              padding-left: 1.8rem;
+              margin-bottom: 0.5rem;
+            }
+
+            &::before {
+              content: "◦";
+              position: absolute;
+              left: 0;
+              color: $link-color;
+              font-size: 1.4rem;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+    }
+
+    // Inline code
+    code {
+      background-color: $darker-alt-bg-color;
+      padding: 0.2rem 0.6rem;
+      border-radius: 0.4rem;
+      font-size: 1.5rem;
+      color: $fg-color;
+
+      @media only screen and (max-width: 768px) {
+        font-size: 1.4rem;
+      }
+    }
+
+    // Bold text
+    strong {
+      color: $alt-fg-color;
+      font-weight: 700;
+    }
+
+    // Italic text
+    em {
+      font-style: italic;
+    }
+
+    // Paragraph spacing
+    p {
+      margin: 1rem 0;
+      line-height: 1.8;
+    }
+  }
+}
+
+// Dark mode support
+@mixin changelog_dark {
+  .changelog {
+    .changelog-timeline::before {
+      background-color: #666;
+    }
+
+    .timeline-marker .timeline-circle {
+      background-color: $bg-color-dark;
+      border-color: #dadada;
+    }
+
+    .timeline-version {
+      .version-link {
+        color: $fg-color-dark;
+
+        &:hover {
+          color: $link-color-dark;
+        }
+      }
+
+      .release-date {
+        color: $fg-color-dark;
+      }
+    }
+
+    .timeline-content {
+      h3 {
+        background: linear-gradient(135deg, rgba(67, 233, 123, 0.18), rgba(67, 233, 123, 0.08));
+
+        + ul {
+          background-color: rgba(67, 233, 123, 0.05);
+          border-right-color: rgba(255, 255, 255, 0.08);
+          border-bottom-color: rgba(255, 255, 255, 0.08);
+        }
+      }
+
+      h3:nth-of-type(1) {
+        background: linear-gradient(135deg, rgba(67, 233, 123, 0.18), rgba(67, 233, 123, 0.08));
+
+        + ul {
+          background-color: rgba(67, 233, 123, 0.05);
+        }
+      }
+
+      h3:nth-of-type(2) {
+        background: linear-gradient(135deg, rgba(255, 165, 2, 0.18), rgba(255, 165, 2, 0.08));
+
+        + ul {
+          background-color: rgba(255, 165, 2, 0.05);
+        }
+      }
+
+      h3:nth-of-type(3) {
+        background: linear-gradient(135deg, rgba(79, 172, 254, 0.18), rgba(79, 172, 254, 0.08));
+
+        + ul {
+          background-color: rgba(79, 172, 254, 0.05);
+        }
+      }
+
+      h3:nth-of-type(4) {
+        background: linear-gradient(135deg, rgba(245, 87, 108, 0.18), rgba(245, 87, 108, 0.08));
+
+        + ul {
+          background-color: rgba(245, 87, 108, 0.05);
+        }
+      }
+
+      h3:nth-of-type(5) {
+        background: linear-gradient(135deg, rgba(108, 92, 231, 0.18), rgba(108, 92, 231, 0.08));
+
+        + ul {
+          background-color: rgba(108, 92, 231, 0.05);
+        }
+      }
+
+      code {
+        background-color: $lighter-alt-bg-color-dark;
+        color: $fg-color-dark;
+      }
+
+      strong {
+        color: $alt-fg-color-dark;
+      }
+
+      > ul > li::before {
+        color: $link-color-dark;
+      }
+
+      ul ul li::before {
+        color: $link-color-dark;
+      }
+    }
+  }
+}
+
+// Apply dark mode
+body.colorscheme-dark {
+  @include changelog_dark();
+}
+
+body.colorscheme-auto {
+  @media (prefers-color-scheme: dark) {
+    @include changelog_dark();
+  }
+}

@@ -1,0 +1,67 @@
+{{ define "title" }}
+  Changelog · {{ .Site.Title }}
+{{ end }}
+
+{{ define "content" }}
+  <section class="container changelog">
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="{{ .Permalink | safeURL }}">Changelog</a>
+      </h1>
+    </header>
+
+    {{ .Content }}
+
+    <div class="changelog-timeline">
+      {{/* Sort pages by date in reverse chronological order (newest first) */}}
+      {{ range .Pages.ByDate.Reverse }}
+        {{/* Get the raw content to extract the H1 */}}
+        {{ $rawContent := .RawContent }}
+        {{ $firstLine := index (split $rawContent "\n") 0 }}
+
+        {{ $version := "" }}
+        {{ $date := "" }}
+
+        {{/* Extract version from first line like: # [0.8.0-beta] - 2025-12-21 */}}
+        {{ $versionMatch := findRE "\\[[^\\]]+\\]" $firstLine }}
+        {{ if $versionMatch }}
+          {{ $version = index $versionMatch 0 }}
+          {{ $version = replaceRE "\\[|\\]" "" $version }}
+        {{ else }}
+          {{/* Fallback to filename without extension */}}
+          {{ $version = .File.BaseFileName }}
+        {{ end }}
+
+        {{/* Extract date from first line like: 2025-12-21 */}}
+        {{ $dateMatch := findRE "\\d{4}-\\d{2}-\\d{2}" $firstLine }}
+        {{ if $dateMatch }}
+          {{ $date = index $dateMatch 0 }}
+        {{ end }}
+
+        {{/* Create anchor ID from version */}}
+        {{ $anchorID := $version | urlize }}
+
+        <div class="timeline-item" id="{{ $anchorID }}">
+          <div class="timeline-marker">
+            <div class="timeline-circle"></div>
+          </div>
+
+          <div class="timeline-version">
+            <a href="#{{ $anchorID }}" class="version-link">{{ $version }}</a>
+            {{ if $date }}
+              <span class="release-date">({{ $date }})</span>
+            {{ end }}
+          </div>
+
+          <div class="timeline-content">
+            {{/* Remove H1 from content and render the rest without auto-generated IDs for H3 */}}
+            {{ $content := .Content }}
+            {{ $content = replaceRE "<h1[^>]*>.*?</h1>" "" $content }}
+            {{ $content = replaceRE "<h3 id=\"[^\"]*\"" "<h3" $content }}
+            {{ $content | safeHTML }}
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

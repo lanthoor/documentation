@@ -1,0 +1,67 @@
+baseURL: https://spendly.co.in
+title: Spendly
+theme: hugo-coder
+languagecode: en
+defaultcontentlanguage: en
+
+pagination:
+  pagerSize: 20
+
+services:
+  disqus:
+    shortname: yourdiscussshortname
+
+markup:
+  highlight:
+    style: github-dark
+
+params:
+  author: Spendly
+  info: No nonsense personal finance tracker. In beta™
+  description: Spendly is a fully offline, privacy-first personal finance tracking application designed to help you take control of your financial life. Your data stays on your device, ensuring complete privacy and security. Track expenses, manage budgets, and gain insights into your spending habits without compromising your personal information or relying on cloud services.
+  keywords: finance,tracker,offline,privacy
+  avatarurl: img/favicon.png
+  #gravatar: john.doe@example.com
+  
+  faviconSVG: /img/favicon.svg
+  favicon_32: img/favicon.ico
+  favicon_16: img/favicon.ico
+  
+  since: 2025
+  
+  enableTwemoji: true
+  
+  colorScheme: auto
+  hidecolorschemetoggle: false
+  
+  # customCSS: ["css/custom.css"]
+  customSCSS: ["scss/changelog.scss"]
+  # customJS: ["js/custom.js"]
+  
+  social:
+    - name: Github
+      icon: fa-brands fa-github fa-2x
+      weight: 1
+      url: https://github.com/spendly-co-in/spendly/
+    - name: Play Store
+      icon: fa-brands fa-google-play fa-2x
+      weight: 3
+      url: "https://play.google.com/apps/testing/in.co.spendly"
+
+taxonomies:
+  category: categories
+  series: series
+  tag: tags
+  author: authors
+
+menu:
+  main:
+    - name: Privacy
+      weight: 1
+      url: privacy/
+    - name: About
+      weight: 2
+      url: about/
+    - name: Changelog
+      weight: 3
+      url: changelog/
