@@ -1,0 +1,17 @@
+{{- if eq .Page.Type "docs" -}}
+<h{{ .Level }} {{- with .Attributes.class }} class="{{ . }}" {{- end }}>
+  {{- .Text | safeHTML -}}
+  {{- if gt .Level 1 -}}
+    <span class="hx:absolute hx:-mt-20" id="{{ .Anchor | safeURL }}"></span>
+    <a href="#{{ .Anchor | safeURL }}" class="subheading-anchor" aria-label="{{ (T "permalinkLabel") | default "Permalink for this section" }}"></a>
+  {{- end -}}
+</h{{ .Level }}>
+{{- else -}}
+<h{{ .Level }} id="{{ .Anchor | safeURL }}">
+  {{ .Text | safeHTML }}
+  <a class="heading-link" href="#{{ .Anchor | safeURL }}">
+    <i class="fa-solid fa-link" aria-hidden="true" title="{{ i18n "link_to_heading" | default "Link to heading" }}"></i>
+    <span class="sr-only">{{ i18n "link_to_heading" | default "Link to heading" }}</span>
+  </a>
+</h{{ .Level }}>
+{{- end -}}

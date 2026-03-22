@@ -2,6 +2,7 @@
 title = "Spendly"
 slug = "spendly"
 type = "docs"
+next = "/spendly/about/"
 
 [[cascade]]
 type = "docs"

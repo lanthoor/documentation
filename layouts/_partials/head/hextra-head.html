@@ -12,11 +12,22 @@
   {{- $mainCss := resources.Get "css/compiled/main.css" -}}
   {{- $customCss := resources.Get "css/custom.css" -}}
   {{- $variablesCss := resources.Get "css/variables.css" | resources.ExecuteAsTemplate "css/variables.css" . -}}
-  {{- $styles := slice $variablesCss $mainCss $customCss | resources.Concat "css/docs-main.css" -}}
+  {{- $docsOverrideCss := resources.Get "css/docs-overrides.css" -}}
+  {{- $styles := slice $variablesCss $mainCss $customCss $docsOverrideCss | resources.Concat "css/docs-main.css" -}}
   {{- if hugo.IsProduction -}}
     {{- $styles = $styles | minify | fingerprint -}}
     <link href="{{ $styles.RelPermalink }}" rel="stylesheet" integrity="{{ $styles.Data.Integrity }}" />
   {{- else -}}
     <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
   {{- end -}}
+
+  {{- $scriptsHead := slice -}}
+  {{- range resources.Match "js/head/*.js" -}}
+    {{- $scriptsHead = $scriptsHead | append (resources.ExecuteAsTemplate .Name $ .) -}}
+  {{- end -}}
+  {{- $scripts := $scriptsHead | resources.Concat "js/docs-main-head.js" -}}
+  {{- if hugo.IsProduction -}}
+    {{- $scripts = $scripts | minify | fingerprint -}}
+  {{- end -}}
+  <script src="{{ $scripts.RelPermalink }}"{{ with $scripts.Data.Integrity }} integrity="{{ . }}"{{ end }}></script>
 </head>

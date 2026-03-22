@@ -1,6 +1,8 @@
 +++
 title = "About Spendly"
 slug = "about"
+prev = "/spendly/"
+next = "/spendly/privacy/"
 +++
 
 ## Why Spendly?

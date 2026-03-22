@@ -12,5 +12,12 @@
       {{ partial "hextra/footer.html" . }}
     {{ end }}
     {{ partial "scripts.html" . }}
+    {{- $docsScript := resources.Get "js/docs-overrides.js" -}}
+    {{- if hugo.IsProduction -}}
+      {{- $docsScript = $docsScript | minify | fingerprint -}}
+      <script defer src="{{ $docsScript.RelPermalink }}" integrity="{{ $docsScript.Data.Integrity }}"></script>
+    {{- else -}}
+      <script defer src="{{ $docsScript.RelPermalink }}"></script>
+    {{- end -}}
   </body>
 </html>
