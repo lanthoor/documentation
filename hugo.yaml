@@ -1,5 +1,5 @@
-baseURL: https://spendly.co.in
-title: Spendly
+baseURL: https://lanthoor.dev
+title: Lallu Anthoor
 theme: hugo-coder
 languagecode: en
 defaultcontentlanguage: en
@@ -16,7 +16,7 @@ markup:
     style: github-dark
 
 params:
-  author: Spendly
+  author: Lallu Anthoor
   info: No nonsense personal finance tracker. In beta™
   description: Spendly is a fully offline, privacy-first personal finance tracking application designed to help you take control of your financial life. Your data stays on your device, ensuring complete privacy and security. Track expenses, manage budgets, and gain insights into your spending habits without compromising your personal information or relying on cloud services.
   keywords: finance,tracker,offline,privacy
