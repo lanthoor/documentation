@@ -1,8 +1,9 @@
 +++
 title = "About Spendly"
 slug = "about"
+weight = 1
 prev = "/spendly/"
-next = "/spendly/privacy/"
+next = "/spendly/features/"
 +++
 
 ## Why Spendly?
@@ -25,5 +26,6 @@ Spendly is designed to be useful every day, with clear transaction flows, budget
 ## Project links
 
 - [Repository](https://github.com/lanthoor/spendly)
+- [Features](/spendly/features/)
 - [Changelog](/spendly/changelog/)
 - [Privacy Policy](/spendly/privacy/)

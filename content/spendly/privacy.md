@@ -1,11 +1,10 @@
 ---
 title: "Privacy Policy"
 slug: "privacy"
-prev: "/spendly/about/"
-next: "/spendly/changelog/"
+weight: 4
+prev: "/spendly/changelog/"
+next: false
 ---
-
-# Privacy Policy for Spendly
 
 **Effective Date:** December 23, 2025
 
