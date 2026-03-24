@@ -23,11 +23,12 @@ Built with Kotlin and Jetpack Compose, it focuses on practical money tracking wi
 
 ## Current status
 
-Spendly is currently in beta (`0.8.0-beta`) with core features complete and active development continuing.
+Spendly is currently in beta (`0.9.2-beta`) with core features complete and active development continuing.
 
 ## Learn more
 
 - [About Spendly](/spendly/about/)
+- [Spendly Features](/spendly/features/)
 - [Spendly Privacy Policy](/spendly/privacy/)
 - [Spendly Changelog](/spendly/changelog/)
 - [GitHub Repository](https://github.com/lanthoor/spendly)
