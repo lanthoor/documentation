@@ -3,7 +3,7 @@ title: "Changelog"
 description: "Track all changes, updates, and improvements to Spendly"
 weight: 3
 prev: "/spendly/features/"
-next: "/spendly/changelog/0.9.5/"
+next: "/spendly/changelog/0.9.8/"
 ---
 
 Releases are organized by version number with the most recent changes appearing first.
@@ -11,6 +11,9 @@ Releases are organized by version number with the most recent changes appearing 
 
 ## Versions
 
+- [0.9.8](/spendly/changelog/0.9.8/)
+- [0.9.7](/spendly/changelog/0.9.7/)
+- [0.9.6](/spendly/changelog/0.9.6/)
 - [0.9.5](/spendly/changelog/0.9.5/)
 - [0.9.4](/spendly/changelog/0.9.4/)
 - [0.9.2-beta](/spendly/changelog/0.9.2-beta/)
